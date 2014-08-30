@@ -26,6 +26,46 @@ define (require, exports, module) ->
     {text: "lentty", weight: 3}
   ]
 
+  service_url = "http://kw.catx.me"
+
+  refresh_keywords = (text, callback) ->
+    payload =
+      max: 15
+      c: text
+    $.ajax
+      url: service_url
+      jsonp: 'callback'
+      dataType: 'jsonp'
+      data: payload
+      success: (data) ->
+        console.log data
+        callback? null, data
+      error: (xhr, status, err) ->
+        callback? err
+
+
   $(document).ready ->
     cloud = $("#cloud")
     cloud.jQCloud initial_words
+
+    ta = $("#text")
+
+    cb = (err, data) ->
+      if err?
+        console.error err
+      else
+        kws = data.keywords
+        words = []
+        for kw in kws
+          words.push
+            text: kw.word
+            weight: kw.x
+        cloud.html("")
+        cloud.jQCloud words
+      ta.prop "disabled", false
+
+    ta.keydown (e) ->
+      if e.ctrlKey and e.keyCode == 13
+        console.log "Submitting #{ta.val()}"
+        ta.prop "disabled", true
+        refresh_keywords ta.val(), cb
