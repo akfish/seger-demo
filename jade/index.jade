@@ -2,15 +2,26 @@ doctype html
 html
   head
     meta(http-equiv='Content-Type', content='text/html; charset=utf-8')
-    link(href='/style/main.css', rel='stylesheet')
-    title CatX Gif To Illusion
+    link(href='style/main.css', rel='stylesheet')
+    link(href='sea-modules/jQCloud/upstream/jqcloud/jqcloud.css', rel='stylesheet')
+    title CatX Seger Demo
   body
     script(src='sea-modules/seajs/2.3.0/dist/sea-debug.js')
     script(src='sea-modules/jquery/2.1.1/jquery.js')
     script(src='sea-modules/underscore/1.6.0/underscore.js')
-    script(src='sea-modules/animatescroll.js/upstream/animatescroll.js')
+    script(src='sea-modules/jQCloud/upstream/jqcloud/jqcloud-1.0.4.js')
     script(src='script/loader.js')
 
     script.
       // App Entry
       seajs.use('/script/main');
+
+    #cloud
+
+    #footer
+      | A&nbsp
+      a(href="" target="_blank") demo
+      | &nbspfor&nbsp
+      a(href="" target="_blank") Seger
+      | &nbspby&nbsp
+      a(href="http://catx.me" target="_blank") AKFish

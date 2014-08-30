@@ -1,0 +1,3 @@
+[submodule "upstream-modules/jQCloud/upstream"]
+	path = upstream-modules/jQCloud/upstream
+	url = https://github.com/lucaong/jQCloud.git
