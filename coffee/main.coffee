@@ -50,8 +50,28 @@ define (require, exports, module) ->
 
     ta = $("#text")
 
+    info = $("#info")
+    error = $("#error")
+
+    show_info = (msg) ->
+      info.text msg
+      info.animate opacity: 1, 1000
+
+    hide_info = ->
+      info.animate opacity: 0, 1000
+
+    show_error = (err, duration = 3000) ->
+      error.text err
+      error.animate opacity: 1, 1000
+      if duration > 0
+        window.setTimeout hide_error, duration
+
+    hide_error = ->
+      error.animate opacity: 0, 1000
+
     cb = (err, data) ->
       if err?
+        show_error err
         console.error err
       else
         kws = data.keywords
@@ -62,10 +82,12 @@ define (require, exports, module) ->
             weight: kw.x
         cloud.html("")
         cloud.jQCloud words
+      hide_info()
       ta.prop "disabled", false
 
     ta.keydown (e) ->
       if e.ctrlKey and e.keyCode == 13
         console.log "Submitting #{ta.val()}"
         ta.prop "disabled", true
+        show_info "提交中"
         refresh_keywords ta.val(), cb
