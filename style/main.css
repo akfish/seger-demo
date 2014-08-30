@@ -1,0 +1,51 @@
+html,
+body {
+  overflow: hidden;
+  padding: 0px;
+  margin: 0px;
+  width: 100%;
+  height: 100%;
+  background-color: #eeeeee;
+  color: #aaaaaa;
+}
+a {
+  color: #00aaff;
+  text-decoration: none;
+}
+#cloud {
+  width: 100%;
+  height: 70%;
+  margin: 0px auto;
+}
+#container {
+  position: relative;
+  width: 100%;
+  height: 20%;
+}
+#container #text {
+  text-align: center;
+  width: 100%;
+  height: 100%;
+  background-color: transparent;
+}
+#container .banner {
+  position: absolute;
+  bottom: -5px;
+  width: 100%;
+  height: 1.5em;
+  color: white;
+  text-align: center;
+  padding: 5px;
+  opacity: 0;
+}
+#container #info {
+  background-color: #00aaff;
+}
+#container #error {
+  background-color: #ff3500;
+}
+#footer {
+  width: 100%;
+  margin: 30px auto;
+  text-align: center;
+}
