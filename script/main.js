@@ -81,6 +81,7 @@ define(function(require, exports, module) {
       url: service_url,
       jsonp: 'callback',
       dataType: 'jsonp',
+      type: 'POST',
       data: payload,
       success: function(data) {
         console.log(data);
