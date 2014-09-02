@@ -70,7 +70,7 @@ define(function(require, exports, module) {
       weight: 3
     }
   ];
-  service_url = "http://kw.catx.me";
+  service_url = "http://kw.catx.me/";
   refresh_keywords = function(text, callback) {
     var payload;
     payload = {
